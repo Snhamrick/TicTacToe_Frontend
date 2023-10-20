@@ -1,0 +1,30 @@
+<div class="d-flex" [ngClass]="selectedTheme">
+    <h1>Welcome to TicTacToe {{ currentUser.username }}</h1>
+    <button class="btn btn-primary" type="button" id="logout" (click)="logout()">Logout</button>
+</div>
+<div class="container">
+    <h2>You current game statistics</h2>
+    <div class="stats">
+        <h3>Total Games Played: {{ currentUser.games }}</h3>
+        <h3>Games Won: {{ currentUser.wins }}</h3>
+        <h3>Games Lost: {{ currentUser.losses }}</h3>
+    </div>
+</div>
+<div class="container">
+    <h4>Look for opponent to play</h4>
+    <button class="btn btn-primary" type="button" (click)="joinGame()">Find Game</button>
+    <app-search-spinner *ngIf="searching"></app-search-spinner>
+    <p *ngIf="searching">Searching for opponent</p>
+    <p *ngIf="noneMessage">{{ noneMessage }}</p>
+</div>
+<div class="container">
+    <form class="theme-selector">
+        <div class="row">
+            <h3>Select your preferred color theme</h3>
+            <div class="col-sm" *ngFor="let theme of themeArray">
+                <label class="radio-label" for="{{ theme }}"> {{ theme }} </label>
+                <input type="radio" name="theme" id="{{ theme }}" value="{{ theme }}" (change)="changeTheme($event)">
+            </div>
+        </div>
+    </form>
+</div>

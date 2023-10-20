@@ -1,0 +1,10 @@
+<div class="container">
+    <form [formGroup]="chatForm" id="chat-form" (ngSubmit)="sendChat()">
+        <h2> Chat with your opponent</h2>
+        <div class="chat-bubble">
+            <p *ngFor="let message of chat"> {{ message.username.username }}: {{ message.chat }} <br> </p>
+        </div>
+        <input class='col chat-input' type="text" formControlName="send">
+        <button class="btn btn-primary" type="submit">Send Chat</button>
+    </form>
+</div>

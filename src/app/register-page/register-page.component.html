@@ -1,0 +1,21 @@
+<div class="container" [ngClass]="selectedTheme">
+    <div class="alert alert-danger" *ngIf="formError">
+        {{ formError }}
+    </div>
+    <form [formGroup]="registerForm" (ngSubmit)="register()">
+        <h2>Create an Account</h2>
+        <div class="row">
+            <label for="username">Username:</label>
+            <input class="credentials" type="text" formControlName="username" id="username">
+        </div>
+        <div class="row">
+            <label for="password">Password:</label>
+            <input class="credentials" type="password" formControlName="password" id="password">
+        </div>
+        <div class="row">
+            <label for="passwordConfirm">Confirm Password:</label>
+            <input class="credentials" type="password" formControlName="passwordConfirm" id="passwordConfirm">
+        </div>
+        <button class="btn btn-primary" type="submit">Create Account</button>
+    </form>
+</div>

@@ -1,0 +1,22 @@
+<div class="container" [ngClass]="selectedTheme">
+    <h1>Multiplayer TicTacToe</h1>
+    <div class="alert alert-danger" *ngIf="formError">
+        {{ formError }}
+    </div>
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <h2>Login to Account</h2>
+        <div class="row">
+                <label for="username">Username:</label>
+                <input class="credentials" type="text" formControlName="username">
+        </div>
+        <div class="row">
+                <label for="password">Password:</label>
+                <input class="credentials" type="password" formControlName="password">
+        </div>
+            <button class="btn btn-primary login-button" type="submit">Login</button>
+    </form>
+</div>
+<div class="container">
+    <h3>Don't have an account?</h3>
+    <button class="btn btn-primary" (click)="register()">Create Account</button>
+</div>

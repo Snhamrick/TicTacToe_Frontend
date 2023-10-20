@@ -1,0 +1,10 @@
+<div class="d-flex" [ngClass]="selectedTheme">
+    <h1>Tic-Tac-Toe</h1>
+    <button class="btn btn-primary" id="leave-game" type="button" (click)="leaveGame()">Leave Game</button>
+</div>
+<div class="container">
+    <h2> {{ currentUser.username }} VS {{ opponent }} </h2>
+    <h2> {{ resultMessage }} </h2>
+    <app-game-board (newMove)="sendMove($event)"></app-game-board>
+    <app-game-chat (newChat)="sendChat($event)" [chat]="chat"></app-game-chat>
+</div>
